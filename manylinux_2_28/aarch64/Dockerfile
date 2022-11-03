@@ -89,6 +89,7 @@ RUN echo 'Acquire::Retries "3";' > /etc/apt/apt.conf.d/80-retries && \
     git \
     g++ \
     make \
+    gcc-multilib \
     sudo \
     wget \
     software-properties-common \
