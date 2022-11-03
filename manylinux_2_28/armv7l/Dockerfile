@@ -85,6 +85,7 @@ RUN echo 'Acquire::Retries "3";' > /etc/apt/apt.conf.d/80-retries && \
     apt-get update && \
     apt-get install --no-install-recommends -y \
     curl \
+    gcc-multilib \
     git \
     g++ \
     make \
