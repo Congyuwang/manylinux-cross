@@ -7,5 +7,4 @@ RUN yum check-update && \
     clang-3.9.0
      
 RUN export PATH=/opt/llvm-3.9.0/bin:$PATH
-
-ENV LIBCLANG_PATH=/opt/llvm-3.9.0/lib64
+ENV LIBCLANG_PATH=/opt/llvm-3.9.0
