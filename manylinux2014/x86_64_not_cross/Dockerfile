@@ -1,6 +1,4 @@
 FROM quay.io/pypa/manylinux2014_x86_64 AS manylinux
 
-RUN yum check-update && \
-    yum -y install centos-release-scl && \
-    yum -y install llvm-toolset-7 && \
-    scl enable llvm-toolset-7 bash
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN brew install llvm
