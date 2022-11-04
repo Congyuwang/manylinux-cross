@@ -1,7 +1,17 @@
 FROM quay.io/pypa/manylinux2014_x86_64 AS manylinux
 
- RUN yum check-update && \
-     yum -y install centos-release-scl && \
-     yum -y install llvm-toolset-7 \
-     yum -y install llvm-toolset-7 && \
-     scl enable llvm-toolset-7 'bash'
+ RUN echo "[alonid-llvm-3.9.0] \
+     name=Copr repo for llvm-3.9.0 owned by alonid \
+     baseurl=https://copr-be.cloud.fedoraproject.org/results/alonid/llvm- \
+     3.9.0/epel-7-$basearch/ \
+     type=rpm-md \
+     skip_if_unavailable=True \
+     gpgcheck=1 \
+     gpgkey=https://copr-be.cloud.fedoraproject.org/results/alonid/llvm-3.9.0/pubkey.gpg \
+     repo_gpgcheck=0 \
+     enabled=1 \
+     enabled_metadata=1" >> /etc/yum.repos.d/epel.repo
+     
+RUN yum check-update && \
+     yum -y install \
+     clang-3.9.0
